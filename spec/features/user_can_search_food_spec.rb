@@ -5,8 +5,12 @@ feature "user can search for sweet potatoes" do
     visit "/"
 
     fill_in :search, with: "sweet potatoes"
+    click_on "search"
+    expect(current_path).to eq("/foods")
 
+    #see total number of items
     expect(page).to have_content("number of items 3")
+    #exp-ect to see 10 food that contains sweet potatoes
   end
 end
 
